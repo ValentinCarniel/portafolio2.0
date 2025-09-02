@@ -9,7 +9,7 @@ export default function About() {
       <div className="relative">
         <div className="absolute inset-0 bg-gradient-to-r from-red-500 via-red-600 to-red-700 rounded-full blur-sm opacity-75 animate-pulse"></div>
         <img
-          src="/valen.png"
+          src="/valen2.jpg"
           alt="Foto de perfil"
           className="relative w-36 h-36 rounded-full object-cover border-4 border-white/20 shadow-2xl transform hover:scale-105 transition-all duration-500 hover:rotate-2"
         />
