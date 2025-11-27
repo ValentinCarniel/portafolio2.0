@@ -1,0 +1,178 @@
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.tools {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 1.5rem auto 0;
+  padding: 1.5rem;
+  background: var(--section-bg);
+  backdrop-filter: blur(8px);
+  border-radius: 1rem;
+  box-shadow: var(--section-shadow);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  overflow: hidden;
+  animation: fadeInUp 0.8s ease-out;
+
+  @media (min-width: 640px) {
+    margin: 2rem auto 0;
+    padding: 2rem;
+    border-radius: 1.25rem;
+  }
+
+  @media (min-width: 1024px) {
+    margin: 2.5rem auto 0;
+    padding: 3rem;
+    border-radius: 1.5rem;
+  }
+}
+
+.toolsOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.03) 0%, rgba(107, 114, 128, 0.03) 100%);
+  animation: pulse 4s ease-in-out infinite;
+}
+
+.toolsAccent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--accent-line);
+  animation: shimmer 6s infinite;
+}
+
+.toolsContent {
+  position: relative;
+  z-index: 10;
+}
+
+.toolsTitle {
+  font-size: var(--font-title);
+  font-weight: var(--font-weight-title);
+  margin-bottom: 1.5rem;
+  text-align: left;
+  color: var(--text-color);
+
+  @media (min-width: 640px) {
+    margin-bottom: 2rem;
+  }
+}
+
+.toolsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+
+  @media (min-width: 640px) {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+.toolItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 1rem;
+  background: rgb(8, 8, 8, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.625rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: fadeInUp 0.6s ease-out both;
+
+  @media (min-width: 640px) {
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+  }
+
+  &:hover {
+    box-shadow: 0 6px 12px rgba(239, 68, 68, 0.1);
+    border-color: rgba(20, 20, 20, 0.15);
+  }
+}
+
+.toolIconWrapper {
+  position: relative;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toolIcon {
+  font-size: 2.25rem;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  z-index: 1;
+  position: relative;
+  opacity: 0.9;
+
+  @media (max-width: 640px) {
+    font-size: 1.25rem;
+  }
+
+  .toolItem:hover & {
+    transform: scale(1.15);
+    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.1)) brightness(1);
+  }
+}
+
+.toolIconGlow {
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  opacity: 0;
+  filter: blur(16px);
+  transition: opacity 0.3s ease;
+  z-index: 0;
+
+  .toolItem:hover & {
+    opacity: 0.4;
+  }
+}
+
+.toolName {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgba(229, 231, 235, 0.85);
+  text-align: center;
+  transition: color 0.3s ease;
+
+  .toolItem:hover & {
+    color: rgba(255, 255, 255, 0.95);
+  }
+}
+

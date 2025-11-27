@@ -37,6 +37,15 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --text-color: rgba(228, 228, 228, 0.95);
+  --font-title: 1.7rem;
+  --font-weight-title: 500;
+  --max-width: 1200px;
+  --section-bg: linear-gradient(135deg, rgba(1, 14, 43, 0.075) 0%, rgba(36, 0, 0, 0.15) 50%, rgba(53, 0, 0, 0.05) 100%);
+  --section-bg-about: linear-gradient(135deg, rgba(17, 24, 39, 0.1) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(1, 28, 85, 0.15) 100%);
+  --bg-color: #0c0c0c;
+  --section-shadow: 0 6px 12px rgba(80, 80, 80, 0.1);
+  --accent-line: linear-gradient(90deg, rgba(168, 4, 4, 0.4), rgba(189, 5, 5, 0.5));
 }
 
 .dark {
@@ -122,14 +131,14 @@
 
   /* Fixed white line issue and changed background to black */
   html {
-    background: #000000;
+    background: var(--bg-color);
     margin: 0;
     padding: 0;
   }
 
   body {
     @apply text-foreground;
-    background: #000000;
+    background: var(--bg-color);
     padding-top: 80px;
     margin: 0;
     min-height: 100vh;

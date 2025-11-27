@@ -1,4 +1,5 @@
-import ProjectCard from "./project-card"
+import ProjectCard from "../ProjectCard/ProjectCard"
+import styles from "./Projects.module.scss"
 
 export default function Projects() {
   const proyectos = [
@@ -23,21 +24,18 @@ export default function Projects() {
   ]
 
   return (
-    <section
-      id="proyectos"
-      className="w-full max-w-4xl mx-auto mt-10 p-8 bg-gradient-to-br from-gray-900/90 via-red-900/20 to-black/30 backdrop-blur-sm rounded-2xl shadow-2xl border border-white/10 relative overflow-hidden animate-fade-in-up"
-    >
-      <div className="absolute inset-0 bg-gradient-to-r from-red-600/5 via-red-800/5 to-gray-600/5 animate-pulse"></div>
-      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-red-500 via-red-600 to-red-700 animate-shimmer"></div>
+    <section id="proyectos" className={styles.projects}>
+      <div className={styles.projectsOverlay}></div>
+      <div className={styles.projectsAccent}></div>
 
-      <div className="relative z-10">
-        <h2 className="text-3xl font-bold mb-8 text-center bg-gradient-to-r from-red-400 via-red-500 to-red-600 bg-clip-text text-transparent drop-shadow-lg">
+      <div className={styles.projectsContent}>
+        <h2 className={styles.projectsTitle}>
           Mis Proyectos
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className={styles.projectsGrid}>
           {proyectos.map((proyecto, index) => (
-            <div key={index} style={{ animationDelay: `${index * 200}ms` }}>
+            <div key={index} style={{ animationDelay: `${index * 150}ms` }}>
               <ProjectCard
                 title={proyecto.title}
                 description={proyecto.description}
@@ -51,3 +49,4 @@ export default function Projects() {
     </section>
   )
 }
+
